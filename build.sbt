@@ -1,4 +1,4 @@
-name          := "word-count"
+name          := "spark-plug"
 version       := "1.0"
 scalaVersion  := "2.11.8"
 
