@@ -2,7 +2,7 @@
 
 **_There is a driver that talks to a single coordinator called master that manages workers in which executors run._**
 
-![Architecture - Simple](Pics/Spark-architecture-spark-website.png)
+![Architecture - Simple](../Pics/Spark-architecture-spark-website.png)
 
 #### A Spark driver (aka an application’s driver process):
   * hosts SparkContext for a Spark application
@@ -14,7 +14,7 @@
 #### Executor is a distributed agent that is responsible for executing tasks.
 
  * Executor typically runs for the entire lifetime of a Spark application which is called static allocation of executors,
-     but you could also opt in for [dynamic allocation]
+     but you could also opt in for [dynamic allocation](#dynamic)
  * Executors reports heartbeat and partial metrics for active tasks to HeartbeatReceiver RPC Endpoint on the driver.
  * Executors provide in-memory storage for RDDs that are cached in Spark applications (via Block Manager).
 
@@ -27,7 +27,8 @@
 
 
 
-[dynamic allocation]: _Unlike the "traditional" static allocation where a Spark application reserves CPU and memory 
+<a name="dynamic"></a>
+**dynamic allocation**  : _Unlike the "traditional" static allocation where a Spark application reserves CPU and memory 
       resources upfront (irrespective of how much it may eventually use), in dynamic allocation you get as much as 
       needed and no more. It scales the number of executors up and down based on workload, i.e. idle executors are 
       removed, and when there are pending tasks waiting for executors to be launched on, dynamic allocation requests them._
