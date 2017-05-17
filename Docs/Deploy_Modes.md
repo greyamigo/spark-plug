@@ -11,14 +11,14 @@ Deploy mode can be one of the following options:
 What are the practical differences between Spark Standalone client deploy mode and cluster deploy mode? What are the pro's and con's of using each one?
 Let's try to look at the differences between client and cluster mode.
 
-####Client:
+#### Client:
 
 * Driver runs on a dedicated server (Master node) inside a dedicated process. This means it has all available resources at it's disposal to execute work.
 * Driver opens up a dedicated Netty HTTP server and distributes the JAR files specified to all Worker nodes (big advantage).
 * Because the Master node has dedicated resources of it's own, you don't need to "spend" worker resources for the Driver program.
 * If the driver process dies, you need an external monitoring system to reset it's execution.
 
-####Cluster:
+#### Cluster:
 
 * Driver runs on one of the cluster's Worker nodes. The worker is chosen by the Master leader
 * Driver runs as a dedicated, standalone process inside the Worker.
