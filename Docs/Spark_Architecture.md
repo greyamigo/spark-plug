@@ -25,6 +25,13 @@
 2. Apache Mesos – a general cluster manager that can also run Hadoop MapReduce and service applications.
 3. Hadoop YARN – the resource manager in Hadoop 2.
 
+Master Urls
+
+1. SPARK : `spark://HOST:PORT`	(7077 by default)
+2. MESOS : `mesos://HOST:PORT`	(5050 by default). Or, for a Mesos cluster using ZooKeeper, use `mesos://zk://....`
+3. YARN  : `yarn`               The cluster location will be found based on the HADOOP_CONF_DIR or YARN_CONF_DIR variable.
+
+
 
 
 <a name="dynamic"></a>

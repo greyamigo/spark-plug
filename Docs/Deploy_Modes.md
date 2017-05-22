@@ -23,5 +23,5 @@ Let's try to look at the differences between client and cluster mode.
 * Driver runs on one of the cluster's Worker nodes. The worker is chosen by the Master leader
 * Driver runs as a dedicated, standalone process inside the Worker.
 * Driver programs takes up at least 1 core and a dedicated amount of memory from one of the workers (this can be configured).
-* Driver program can be monitored from the Master node using the --supervise flag and be reset in case it dies.
+* Driver program can be monitored from the Master node using the --supervise flag and be reset in case it if it fails with non-zero exit code. ( with Spark Standalone Cluster)
 * When working in Cluster mode, all JARs related to the execution of your application need to be publicly available to all the workers. This means you can either manually place them in a shared place or in a folder for each of the workers.
