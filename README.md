@@ -1,8 +1,10 @@
-Spark Word Count Example
-========================
+Spark Plug
+==========
 
-An example Spark application with SBT configuration and unit tests. Implements
-the obligatory "Word Count" example in Spark.
+An example Spark application with SBT configuration and unit tests.
+
+* Implements the obligatory "Word Count" example in Spark.
+* Docs on Topics related to Spark 
 
 Overview
 --------
@@ -14,6 +16,7 @@ Overview
 - `/src/main/scala/WordCount.scala` - Pure function on `RDD`s for counting the occurrences of words in a multi-line input.
 - `/src/main/scala/WordCountApp.scala` - Application that accepts a file name as a command-line argument, starts a `SparkContext`, reads the file, calculates the word count, and prints the results to `stdout`. It can run in local mode with hard-coded configuration (`master = "local[*]"`), or remote mode with configuration supplied from the environment or `spark-submit`.
 - `/src/test/scala/WordCountSpec.scala` - Tests the pure code in `WordCount` using ScalaTest and the fixtures in `SparkFixtures`.
+- `/Docs/*.md` - Markdown files on topics relating to Spark
 
 Usage
 -----
