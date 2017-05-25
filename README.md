@@ -4,7 +4,7 @@ Spark Plug
 An example Spark application with SBT configuration and unit tests.
 
 * Implements the obligatory "Word Count" example in Spark.
-* Docs on Topics related to Spark 
+* Docs on Topics related to Spark : [Docs Here](Docs/)
 
 Overview
 --------
@@ -17,6 +17,7 @@ Overview
 - `/src/main/scala/WordCountApp.scala` - Application that accepts a file name as a command-line argument, starts a `SparkContext`, reads the file, calculates the word count, and prints the results to `stdout`. It can run in local mode with hard-coded configuration (`master = "local[*]"`), or remote mode with configuration supplied from the environment or `spark-submit`.
 - `/src/test/scala/WordCountSpec.scala` - Tests the pure code in `WordCount` using ScalaTest and the fixtures in `SparkFixtures`.
 - `/Docs/*.md` - Markdown files on topics relating to Spark
+- `/Pics/*` - Pics used in Documents
 
 Usage
 -----
