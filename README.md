@@ -44,7 +44,7 @@ To run remotely:
 
 ```sh
 sbt package
-spark-submit target/scala-2.11/word-count_2.11-1.0.jar --remote README.md
+spark-submit target/scala-2.11/spark-plug_2.11-1.0.jar --remote README.md
 ```
 
 Run on docker :
