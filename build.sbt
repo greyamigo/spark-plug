@@ -2,6 +2,13 @@ name          := "spark-plug"
 version       := "1.0"
 scalaVersion  := "2.11.8"
 
+import com.typesafe.sbt.packager.docker._
+
+
+enablePlugins(JavaAppPackaging)
+
+enablePlugins(DockerPlugin)
+
 scalacOptions ++= Seq(
   "-Xfatal-warnings",
   "-Ywarn-unused-import",
@@ -18,3 +25,5 @@ libraryDependencies ++= Seq(
 
 // Required so that `sbt run` will work for Spark
 fork := true
+
+mappings in Universal += file("README.md") -> "README.md"

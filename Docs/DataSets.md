@@ -4,7 +4,7 @@ DataSet
 * extension of DataFrame
 * typed
 * DataFrame = DataSet[Row]
-* conceptually similar to RDDs
+* conceptually similar to RDDs , but has optimisations in flow
 * TUNGSTEN
 * less memory only needed due to encoding using tungsten
    ![Data Frames Encoding Takes Less Space](../Pics/DataSet-need-less-space.png)

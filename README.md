@@ -46,3 +46,9 @@ To run remotely:
 sbt package
 spark-submit target/scala-2.11/word-count_2.11-1.0.jar --remote README.md
 ```
+
+Run on docker :
+```sh
+sbt docker:publishLocal
+docker run -it spark-plug:1.0 --local README.md
+```
