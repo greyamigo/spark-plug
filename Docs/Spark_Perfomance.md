@@ -11,12 +11,12 @@ Area    | 2010    | 2016     | Magnitude of Increase
 --------|---------|----------|----------------------
 Storage | 50+MB/s | 500+MB/s | 10X
 Network | 1Gbps   | 10Gps    | 10X
-CPU     | ~3Ghz   | ~3Ghz   |  :-(
+CPU     | ~3Ghz   | ~3Ghz    |  :-(
 
 #### Software Side
 
 * Spark IO had been optimized to prune only take number of things needed
-* Parquet and other formats have also moved towards this side as a "dense" columnar format
+* Parquet and other formats have decreased IO by using "dense" columnar format
 
 so CPU increasingly becomes the bottleneck , not IO
 
@@ -62,15 +62,35 @@ advantages
 
 
 
-#### But a normal java code which does a filter over a loop is more performant than a volcano model based query engine.
+#### But a normal java code is more performant than a volcano model based query engine.
 
 #### 14 million rows / sec  V/s  125 million rows / sec
 
 
-Volcano Model                   |  Hand-written Code      
---------------------------------|-------------------------
-Too many virtual function calls | No virtual function calls
+Volcano Model                                 |  Hand-written Code      
+----------------------------------------------|-------------------------
+Too many virtual function calls               | No virtual function calls
 Intermediate data in memory(or L1/L2/L3 cache)| Data in CPU Registers
-cant take advantage of modern CPU features | Compiler loop unrolling, SIMD, pipelining
+cant take advantage of modern CPU features    | Compiler loop unrolling, SIMD, pipelining
 
 Take advantage of all the information that is know after query compilation
+
+SO this leads to Whole-stage code generation
+
+### Whole-stage Code generation
+
+Aim : Fusing operators together so that the generated code looks like hand written
+optimized code
+
+So for that we need to :
+* Identify chains of operators or stages
+* Compile each stage to a single function
+* and we still need the general purpose query engine
+
+SO we need the Hand-written code performance with a general query engine capability
+
+```http://www.vldb.org/pvldb/vol4/p539-neumann.pdf```
+
+![Past v/s Future Key Features](../Pics/Spark_1.x_vs_2+_KeyFeats.png)
+
+![Past v/s Future Operation Benchmarks](../Pics/Operation_Benchmarks_PastvsFuture.png)
